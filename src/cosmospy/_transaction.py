@@ -33,9 +33,9 @@ class Transaction:
         sequence: int,
         fee: int,
         gas: int,
-        fee_denom: str = "uosmo",
+        fee_denom: str = "uan1",
         memo: str = "",
-        chain_id: str = "osmosis-testnet-0",
+        chain_id: str = "anone-testnet-1",
         hrp: str = DEFAULT_BECH32_HRP,
         sync_mode: SyncMode = "broadcast_tx_sync",
     ) -> None:
@@ -53,7 +53,7 @@ class Transaction:
         self._tx_raw = tx.TxRaw()
 
     def add_transfer(
-        self, recipient: str, amount: int, denom: str = "uosmo", hrp: str = "osmo"
+        self, recipient: str, amount: int, denom: str = "uan1", hrp: str = "one"
     ) -> None:
         msg = transfer.MsgSend()
         msg.from_address = privkey_to_address(self._privkey, hrp=hrp)
